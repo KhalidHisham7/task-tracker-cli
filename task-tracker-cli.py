@@ -32,16 +32,24 @@ def main():
             if len(sys.argv) > 3:
                 id_to_be_updated = int(sys.argv[2])
                 index_to_be_updated = contains(tasks_json['tasks'], lambda task: task['id'] == id_to_be_updated)
-                if index_to_be_updated:
+                if index_to_be_updated >= 0:
                     tasks_json['tasks'][index_to_be_updated]['description'] = sys.argv[3]
                     tasks_json['tasks'][index_to_be_updated]['updated_at'] = str(datetime.now())
                 else:
                     print(f"Task with id {id_to_be_updated} not found\n")
             else:
-                print("Some arguments are missing, please provide id of task and new description\n")
-
+                print("Some arguments are missing, please provide id of the task and new description\n")
         case 'delete':
-            print("update")
+            if len(sys.argv) > 2:
+                id_to_be_deleted = int(sys.argv[2])
+                index_to_be_deleted = contains(tasks_json['tasks'], lambda task: task['id'] == id_to_be_deleted)
+                if index_to_be_deleted >= 0:
+                    tasks_json['tasks'][index_to_be_deleted]['updated_at'] = str(datetime.now())
+                    tasks_json['tasks'][index_to_be_deleted]['deleted_at'] = str(datetime.now())
+                else:
+                    print(f"Task with id {id_to_be_deleted} not found\n")
+            else:
+                print("Some arguments are missing, please provide id of the task\n")
         case 'mark-in-progress':
             print("mark-in-progress")
         case 'mark-done':
