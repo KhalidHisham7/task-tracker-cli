@@ -1,8 +1,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-I just started looking into ideas for personal projects to keep my skills sharpened, and I stumbled upon roadmap.sh projects list for BE engineers, I thought I should start looking into these projects as they cover a majority of really interesting topics.
-This particular project is a task tracker CLI that users can use to keep track of the tasks they had, list these tasks, add new ones and update/delete already existing tasks, all through the CLI without much prerequisites.
+- I just started looking into ideas for personal projects to keep my skills sharpened, and I stumbled upon roadmap.sh projects list for BE engineers, I thought I should start looking into these projects as they cover a majority of really interesting topics.
+- This particular project is a task tracker CLI that users can use to keep track of the tasks they had, list these tasks, add new ones and update/delete already existing tasks, all through the CLI without much prerequisites.
+- [Task Tracker CLI ROADMAP.SH](https://roadmap.sh/projects/task-tracker)
 
 
 ### Built With
