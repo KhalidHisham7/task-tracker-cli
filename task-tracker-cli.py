@@ -29,7 +29,7 @@ def main():
             else:
                 print("Description is required!\n")
         case 'update':
-            if len(sys.argv) > 2:
+            if len(sys.argv) > 3:
                 id_to_be_updated = int(sys.argv[2])
                 index_to_be_updated = contains(tasks_json['tasks'], lambda task: task['id'] == id_to_be_updated)
                 if index_to_be_updated:
@@ -37,6 +37,8 @@ def main():
                     tasks_json['tasks'][index_to_be_updated]['updated_at'] = str(datetime.now())
                 else:
                     print(f"Task with id {id_to_be_updated} not found\n")
+            else:
+                print("Some arguments are missing, please provide id of task and new description\n")
 
         case 'delete':
             print("update")
