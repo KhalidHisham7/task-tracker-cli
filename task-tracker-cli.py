@@ -29,7 +29,15 @@ def main():
             else:
                 print("Description is required!\n")
         case 'update':
-            print("update")
+            if len(sys.argv) > 2:
+                id_to_be_updated = int(sys.argv[2])
+                index_to_be_updated = contains(tasks_json['tasks'], lambda task: task['id'] == id_to_be_updated)
+                if index_to_be_updated:
+                    tasks_json['tasks'][index_to_be_updated]['description'] = sys.argv[3]
+                    tasks_json['tasks'][index_to_be_updated]['updated_at'] = str(datetime.now())
+                else:
+                    print(f"Task with id {id_to_be_updated} not found\n")
+
         case 'delete':
             print("update")
         case 'mark-in-progress':
@@ -43,6 +51,11 @@ def main():
     write_file = open(file_name, 'w')
     json.dump(tasks_json, write_file, sort_keys=True, indent=4)
 
+def contains(list, filter):
+    for x in list:
+        if filter(x):
+            return list.index(x)
+    return False
 
 if __name__ == "__main__":
     main()
