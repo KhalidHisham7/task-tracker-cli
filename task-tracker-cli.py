@@ -51,9 +51,27 @@ def main():
             else:
                 print("Some arguments are missing, please provide id of the task\n")
         case 'mark-in-progress':
-            print("mark-in-progress")
+            if len(sys.argv) > 2:
+                id_to_be_updated = int(sys.argv[2])
+                index_to_be_updated = contains(tasks_json['tasks'], lambda task: task['id'] == id_to_be_updated)
+                if index_to_be_updated >= 0:
+                    tasks_json['tasks'][index_to_be_updated]['status'] = 'in-progress'
+                    tasks_json['tasks'][index_to_be_updated]['updated_at'] = str(datetime.now())
+                else:
+                    print(f"Task with id {id_to_be_updated} not found\n")
+            else:
+                print("Some arguments are missing, please provide id of the task\n")
         case 'mark-done':
-            print("mark-done")
+            if len(sys.argv) > 2:
+                id_to_be_updated = int(sys.argv[2])
+                index_to_be_updated = contains(tasks_json['tasks'], lambda task: task['id'] == id_to_be_updated)
+                if index_to_be_updated >= 0:
+                    tasks_json['tasks'][index_to_be_updated]['status'] = 'done'
+                    tasks_json['tasks'][index_to_be_updated]['updated_at'] = str(datetime.now())
+                else:
+                    print(f"Task with id {id_to_be_updated} not found\n")
+            else:
+                print("Some arguments are missing, please provide id of the task\n")
         case 'list':
             print("list")
 
